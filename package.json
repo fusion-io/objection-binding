@@ -1,0 +1,24 @@
+{
+  "name": "@fusion.io/objection-binding",
+  "version": "1.0.0",
+  "description": "The ORM for Geeks, by Geeks (and for Fusion, ofcourse!)",
+  "main": "index.js",
+  "repository": "",
+  "scripts": {
+    "build:watch": "nodemon --exec npm run build --watch src",
+    "build": "babel src -d .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rikky <son.levuthai@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "knex": "^0.19.0",
+    "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "@fusion.io/framework": "^1.5.12"
+  }
+}
