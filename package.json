@@ -20,5 +20,9 @@
     "nodemon": "^1.19.1",
     "objection": "^1.6.9"
   },
-  "dependencies": {}
+  "dependencies": {
+    "lodash.camelcase": "^4.3.0",
+    "lodash.snakecase": "^4.1.1",
+    "pluralize": "^8.0.0"
+  }
 }
