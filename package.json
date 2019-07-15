@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "The ORM for Geeks, by Geeks (and for Fusion, ofcourse!)",
   "main": "index.js",
-  "repository": "",
+  "repository": "https://github.com/fusion-io/objection-binding.git",
   "scripts": {
     "build:watch": "nodemon --exec npm run build --watch src",
     "build": "babel src -d .",
