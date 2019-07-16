@@ -7,7 +7,7 @@ import {
 } from "./decorators/relations";
 
 import {
-    type
+    type,
 } from "./decorators/abilities";
 
 import Model from "./Model";
