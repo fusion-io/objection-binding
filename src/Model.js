@@ -1,11 +1,27 @@
 import {Model as BaseModel} from "objection";
 import pluralize from "pluralize";
 import snakeCase from "lodash.snakecase";
+import Extended from "./extensions/Extended";
 
 export default class Model extends BaseModel {
 
     static get tableName() {
         return snakeCase(pluralize(this.name));
+    }
+
+    static get queryBuilderExtensions() {
+        return [
+            Extended()
+        ]
+    }
+
+    static get QueryBuilder() {
+        return this
+            .queryBuilderExtensions
+            .reduce(
+                (ExtendQueryBuilder, extension) => extension(ExtendQueryBuilder),
+                BaseModel.QueryBuilder
+            );
     }
 
     static get typeCastings() {
@@ -21,7 +37,13 @@ export default class Model extends BaseModel {
 
         this.constructor
             .typeCastings
-            .forEach(({key, caster}) => caster.parseDatabase(willBeParsedJson, json, key))
+            .forEach(({key, caster}) => {
+
+                // Only apply casting when we have the key
+                if (json[key] !== undefined) {
+                    caster.parseDatabase(willBeParsedJson, json, key)
+                }
+            })
         ;
 
         willBeParsedJson.$original = json;
@@ -36,7 +58,11 @@ export default class Model extends BaseModel {
 
         this.constructor
             .typeCastings
-            .forEach(({key, caster}) => caster.formatDatabase(willBeFormatted, json, key))
+            .forEach(({key, caster}) => {
+                if (json[key] !== undefined) {
+                    caster.formatDatabase(willBeFormatted, json, key);
+                }
+            })
         ;
 
         return willBeFormatted;
@@ -49,7 +75,11 @@ export default class Model extends BaseModel {
 
         this.constructor
             .typeCastings
-            .forEach(({key, caster}) => caster.parseJson(willBeParsedJson, json, key))
+            .forEach(({key, caster}) => {
+                if (json[key] !== undefined) {
+                    caster.parseJson(willBeParsedJson, json, key)
+                }
+            })
         ;
 
         return willBeParsedJson;
@@ -62,7 +92,11 @@ export default class Model extends BaseModel {
 
         this.constructor
             .typeCastings
-            .forEach(({key, caster}) => caster.formatJson(willBeFormatted, json, key))
+            .forEach(({key, caster}) => {
+                if (json[key] !== undefined) {
+                    caster.formatJson(willBeFormatted, json, key)
+                }
+            })
         ;
 
         return willBeFormatted;

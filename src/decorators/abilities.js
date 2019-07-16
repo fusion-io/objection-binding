@@ -1,6 +1,7 @@
-export const softDelete = () => {
+export const connection = () => {
 
 };
+
 
 export const hasTimestamps = () => {
 
