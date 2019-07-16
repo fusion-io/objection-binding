@@ -8,7 +8,7 @@ export default class Model extends BaseModel {
         return snakeCase(pluralize(this.name));
     }
 
-    static get $typeCastings() {
+    static get typeCastings() {
         return [
             // { key, caster }
         ];
@@ -20,7 +20,7 @@ export default class Model extends BaseModel {
         let willBeParsedJson = Object.assign({}, json);
 
         this.constructor
-            .$typeCastings
+            .typeCastings
             .forEach(({key, caster}) => caster.parseDatabase(willBeParsedJson, json, key))
         ;
 
@@ -35,7 +35,7 @@ export default class Model extends BaseModel {
         let willBeFormatted = Object.assign({}, json);
 
         this.constructor
-            .$typeCastings
+            .typeCastings
             .forEach(({key, caster}) => caster.formatDatabase(willBeFormatted, json, key))
         ;
 
@@ -48,7 +48,7 @@ export default class Model extends BaseModel {
         let willBeParsedJson = Object.assign({}, json);
 
         this.constructor
-            .$typeCastings
+            .typeCastings
             .forEach(({key, caster}) => caster.parseJson(willBeParsedJson, json, key))
         ;
 
@@ -61,7 +61,7 @@ export default class Model extends BaseModel {
         let willBeFormatted = Object.assign({}, json);
 
         this.constructor
-            .$typeCastings
+            .typeCastings
             .forEach(({key, caster}) => caster.formatJson(willBeFormatted, json, key))
         ;
 

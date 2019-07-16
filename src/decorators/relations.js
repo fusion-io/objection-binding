@@ -1,23 +1,6 @@
-import {container} from "@fusion.io/framework";
-import {Database} from "@fusion.io/framework/Contracts";
 import {Model} from "objection";
 import camelcase from "lodash.camelcase";
 import pluralize from "pluralize";
-
-/**
- * Choose the connection for the Model
- *
- * @param connectionName
- * @return {function(*): *}
- */
-export const connection = connectionName => Model => {
-
-    const dbm = container.make(Database);
-
-    Model.bindKnex(dbm.connection(connectionName));
-
-    return Model;
-};
 
 /**
  *

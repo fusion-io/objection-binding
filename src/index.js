@@ -1,21 +1,23 @@
 import {
-    connection,
     hasMany,
     hasOne,
     hasOneThrough,
     belongsTo,
     manyToMany,
+} from "./decorators/relations";
 
-} from "./decorators";
+import {
+    type
+} from "./decorators/abilities";
 
 import Model from "./Model";
 
 export {
-    connection,
     hasMany,
     hasOne,
     hasOneThrough,
     belongsTo,
     manyToMany,
+    type,
     Model
 }
