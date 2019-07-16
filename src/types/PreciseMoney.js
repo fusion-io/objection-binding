@@ -3,13 +3,13 @@ import Money from "dinero.js";
 export default {
     parseDatabase(json, original, key) {
 
-        if (original[key + '_amount'] === null || original[key + '_amount'] === undefined) {
+        if (original[key + 'Amount'] === null || original[key + 'Amount'] === undefined) {
             return json[key] = null;
         }
 
-        const amount    = original[key + '_amount'];
-        const precision = original[key + '_precision'];
-        const currency  = original[key + '_currency'];
+        const amount    = original[key + 'Amount'];
+        const precision = original[key + 'Precision'];
+        const currency  = original[key + 'Currency'];
 
         json[key] = Money({amount, precision, currency});
     },
@@ -22,9 +22,9 @@ export default {
 
         const money = original[key];
 
-        json[key + '_amount']    = money.getAmount();
-        json[key + '_precision'] = money.getPrecision();
-        json[key + '_currency']  = money.getCurrency();
+        json[key + 'Amount']    = money.getAmount();
+        json[key + 'Precision'] = money.getPrecision();
+        json[key + 'Currency']  = money.getCurrency();
 
         delete json[key];
     },
@@ -48,6 +48,10 @@ export default {
         if (original[key] === null || original[key] === undefined) {
             return json[key] = null;
         }
+
+        delete json[key + 'Amount'];
+        delete json[key + 'Precision'];
+        delete json[key + 'Currency'];
 
         json[key] = original[key].toObject();
     },
