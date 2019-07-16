@@ -3,7 +3,7 @@ export default ({column}) => Base => {
         delete() {
             this.mergeContext({softDelete: column});
 
-            return this.patch({[column]: new Date()})
+            return this.patch({[column]: new Date()});
         }
 
         restore() {

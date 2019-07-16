@@ -1,7 +1,7 @@
 import SoftDelete from "./extensions/SoftDelete";
 import moment from "./types/moment";
 
-export default ({column = 'softDelete'}) => Model => class extends Model {
+export default ({column} = {column: 'deleted_at'}) => Model => class extends Model {
     static get queryBuilderExtensions() {
         return [...Model.queryBuilderExtensions, SoftDelete({column})];
     }

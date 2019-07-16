@@ -16,8 +16,8 @@ export default {
 
     formatDatabase(json, original, key) {
 
-        if (original[key] === null) {
-            return json[key] = null;
+        if (original[key] === null || original[key] === undefined) {
+            return delete json[key];
         }
 
         const money = original[key];
@@ -30,7 +30,7 @@ export default {
     },
 
     parseJson(json, original, key) {
-        if (original[key] === null) {
+        if (original[key] === null || original[key] === undefined) {
             return json[key] = null;
         }
 
@@ -45,7 +45,7 @@ export default {
 
     formatJson(json, original, key) {
 
-        if (original[key] === null) {
+        if (original[key] === null || original[key] === undefined) {
             return json[key] = null;
         }
 

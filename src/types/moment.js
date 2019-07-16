@@ -3,7 +3,7 @@ import moment from "moment";
 export default {
     parseDatabase(json, original, key) {
 
-        if (original[key] === null) {
+        if (original[key] === null || original[key] === undefined) {
             return json[key] = null;
         }
 
@@ -12,7 +12,7 @@ export default {
 
     formatDatabase(json, original, key) {
 
-        if (original[key] === null) {
+        if (original[key] === null || original[key] === undefined) {
             return json[key] = null;
         }
 
@@ -21,7 +21,7 @@ export default {
 
     parseJson(json, original, key) {
 
-        if (original[key] === null) {
+        if (original[key] === null || original[key] === undefined) {
             return json[key] = null;
         }
 
@@ -30,7 +30,7 @@ export default {
 
     formatJson(json, original, key) {
 
-        if (original[key] === null) {
+        if (original[key] === null || original[key] === undefined) {
             return json[key] = null;
         }
 

@@ -38,11 +38,7 @@ export default class Model extends BaseModel {
         this.constructor
             .typeCastings
             .forEach(({key, caster}) => {
-
-                // Only apply casting when we have the key
-                if (json[key] !== undefined) {
-                    caster.parseDatabase(willBeParsedJson, json, key)
-                }
+                caster.parseDatabase(willBeParsedJson, json, key)
             })
         ;
 
@@ -59,9 +55,7 @@ export default class Model extends BaseModel {
         this.constructor
             .typeCastings
             .forEach(({key, caster}) => {
-                if (json[key] !== undefined) {
-                    caster.formatDatabase(willBeFormatted, json, key);
-                }
+                caster.formatDatabase(willBeFormatted, json, key);
             })
         ;
 
@@ -76,9 +70,7 @@ export default class Model extends BaseModel {
         this.constructor
             .typeCastings
             .forEach(({key, caster}) => {
-                if (json[key] !== undefined) {
-                    caster.parseJson(willBeParsedJson, json, key)
-                }
+                caster.parseJson(willBeParsedJson, json, key);
             })
         ;
 
@@ -93,9 +85,7 @@ export default class Model extends BaseModel {
         this.constructor
             .typeCastings
             .forEach(({key, caster}) => {
-                if (json[key] !== undefined) {
-                    caster.formatJson(willBeFormatted, json, key)
-                }
+                caster.formatJson(willBeFormatted, json, key);
             })
         ;
 
