@@ -1,6 +1,6 @@
-import DateTime from "./types/moment";
+import DateTime from "./../types/moment";
 import moment from "moment";
-import Timestamps from "./extensions/Timestamps";
+import Timestamps from "./../extensions/Timestamps";
 
 export default ({createdAtColumn, updatedAtColumn} = {createdAtColumn: 'createdAt', updatedAtColumn: 'updatedAt'}) => Model =>
     class extends Model {

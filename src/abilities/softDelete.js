@@ -1,5 +1,5 @@
-import SoftDelete from "./extensions/SoftDelete";
-import moment from "./types/moment";
+import SoftDelete from "./../extensions/SoftDelete";
+import moment from "./../types/moment";
 
 export default ({column} = {column: 'deletedAt'}) => Model => class extends Model {
     static get queryBuilderExtensions() {

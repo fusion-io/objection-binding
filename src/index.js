@@ -1,23 +1,7 @@
-import {
-    hasMany,
-    hasOne,
-    hasOneThrough,
-    belongsTo,
-    manyToMany,
-} from "./decorators/relations";
-
-import {
-    type,
-} from "./decorators/abilities";
-
 import Model from "./Model";
+import type from "./types/type";
 
 export {
-    hasMany,
-    hasOne,
-    hasOneThrough,
-    belongsTo,
-    manyToMany,
-    type,
-    Model
+    Model,
+    type
 }
