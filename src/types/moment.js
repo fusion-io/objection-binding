@@ -37,5 +37,5 @@ export default {
         }
 
         return json[key] = moment(original[key]).toDate().toISOString();
-    },
+    }
 }

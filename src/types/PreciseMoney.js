@@ -54,5 +54,5 @@ export default {
         delete json[key + 'Currency'];
 
         json[key] = original[key].toObject();
-    },
+    }
 }

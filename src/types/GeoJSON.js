@@ -37,5 +37,5 @@ export default {
         }
 
         return json[key] = original[key].toJSON();
-    },
+    }
 }

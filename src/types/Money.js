@@ -35,5 +35,5 @@ export default {
         }
 
         json[key] = original[key].getAmount();
-    },
+    }
 }
