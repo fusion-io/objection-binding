@@ -1,6 +1,6 @@
 {
   "name": "@fusion.io/objection-binding",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "The ORM for Geeks, by Geeks (and for Fusion, ofcourse!)",
   "main": "index.js",
   "repository": "https://github.com/fusion-io/objection-binding.git",
