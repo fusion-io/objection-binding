@@ -16,7 +16,9 @@ export default {
             return json[key] = null;
         }
 
-        return json[key] = original[key].toDate();
+        // Since it is not warranty that the original value is a moment() object
+        // We'll try to wrap it first.
+        return json[key] = moment(original[key]).toDate();
     },
 
     parseJson(json, original, key) {
@@ -34,6 +36,6 @@ export default {
             return json[key] = null;
         }
 
-        return json[key] = original[key].toDate().toISOString();
+        return json[key] = moment(original[key]).toDate().toISOString();
     },
 }
