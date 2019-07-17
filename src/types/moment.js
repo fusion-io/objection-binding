@@ -16,7 +16,7 @@ export default {
             return json[key] = null;
         }
 
-        return json[key] = original[key].toDate().getTime();
+        return json[key] = original[key].toDate();
     },
 
     parseJson(json, original, key) {
