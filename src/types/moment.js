@@ -3,8 +3,8 @@ import moment from "moment";
 export default {
     parseDatabase(json, original, key) {
 
-        if (original[key] === null || original[key] === undefined) {
-            return json[key] = null;
+        if (!!original[key]) {
+            return json[key];
         }
 
         return json[key] = moment(original[key]);
@@ -12,8 +12,8 @@ export default {
 
     formatDatabase(json, original, key) {
 
-        if (original[key] === null || original[key] === undefined) {
-            return json[key] = null;
+        if (!!original[key]) {
+            return json[key];
         }
 
         // Since it is not warranty that the original value is a moment() object
@@ -23,8 +23,8 @@ export default {
 
     parseJson(json, original, key) {
 
-        if (original[key] === null || original[key] === undefined) {
-            return json[key] = null;
+        if (!!original[key]) {
+            return json[key];
         }
 
         return json[key] = moment(original[key]);
@@ -32,8 +32,8 @@ export default {
 
     formatJson(json, original, key) {
 
-        if (original[key] === null || original[key] === undefined) {
-            return json[key] = null;
+        if (!!original[key]) {
+            return json[key];
         }
 
         return json[key] = moment(original[key]).toDate().toISOString();
